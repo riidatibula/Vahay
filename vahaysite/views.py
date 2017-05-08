@@ -25,9 +25,17 @@ def home(request):
 	return render(request, 'vahaysite/signin.html', context = context)
 
 
+def profile(request):
+	return render(request, 'vahaysite/profile.html')
+	
+
 def logout_user(request):
 	logout(request)
 	return render(request, 'vahaysite/signin.html')
+
+
+
+
 
 # def detail(request, album_id):
 # 	album = get_object_or_404(Album, pk = album_id)

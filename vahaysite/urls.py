@@ -6,4 +6,5 @@ app_name = 'vahaysite'
 urlpatterns = [
    url(r'^$', views.home, name='home'),
    url(r'^logout/$', views.logout_user, name='logout'),
+   url(r'^profile/$', views.profile, name='profile'),
 ]
