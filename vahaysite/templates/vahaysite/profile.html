@@ -1,5 +1,7 @@
 {% extends 'vahaysite/base.html' %}
 
+{% block title %}user.username{% endblock %}
+
 {% block body %}
 	<h1>Profile Page</h1>
 	<p>Username: {{ user.username }}</p>
@@ -7,4 +9,21 @@
 	<p>Last Name: {{ user.last_name }}</p>
 	<p>Email: {{ user.email }}</p>
 	<p>Date Joined: {{ user.date_joined }}</p>
+
+	<h3>Vahay you manage</h3>
+	{% for vahay in user.vahay_set.all %}
+		<ul>
+			<li><a href="">{{ vahay }}</a></li>
+		</ul>
+	{% endfor %}
+
+	{% if user.vahay_set.count <= 0 %}
+		<p>You don't have Vahay to manage</p>
+	{% endif %}<br>
+
+	<form action="{% url 'vahaysite:addVahay' user.username %}" method="POST">
+		{% csrf_token %}	
+		<button type="submit" class="btn btn-success">Add Vahay</button>
+	</form>
+
 {% endblock %}
