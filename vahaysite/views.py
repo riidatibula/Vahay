@@ -25,7 +25,7 @@ def home(request):
 	return render(request, 'vahaysite/signin.html', context = context)
 
 
-def profile(request):
+def profile(request, username):
 	return render(request, 'vahaysite/profile.html')
 	
 
