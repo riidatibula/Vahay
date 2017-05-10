@@ -8,4 +8,5 @@ urlpatterns = [
    url(r'^logout/$', views.logout_view, name='logout'),
    url(r'^(?P<username>[\w\-]+)/$', views.profile, name='profile'),
    url(r'^(?P<username>[\w\-]+)/add-vahay/$', views.addVahay, name='addVahay'),
+   url(r'^(?P<username>[\w\-]+)/vahay-details/(?P<pk>\d+)/$', views.vahayDetails, name='vahayDetails'),
 ]

@@ -40,3 +40,8 @@ def profile(request, username):
 def addVahay(request, username):
 	return render(request, 'vahaysite/addVahay.html')
 
+def vahayDetails(request, username, pk):
+	vahay = get_object_or_404(Vahay, pk=pk)
+	return render(request, 'vahaysite/vahayDetails.html', {'vahay': vahay})
+
+

@@ -13,7 +13,7 @@
 	<h3>Vahay you manage</h3>
 	{% for vahay in user.vahay_set.all %}
 		<ul>
-			<li><a href="">{{ vahay }}</a></li>
+			<li><a href="{% url 'vahaysite:vahayDetails' user.username vahay.pk %}">{{ vahay }}</a></li>
 		</ul>
 	{% endfor %}
 

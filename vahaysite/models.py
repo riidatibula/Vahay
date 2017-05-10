@@ -20,6 +20,12 @@ class Vahay(models.Model):
 	def __str__(self):
 		return self.name + " - " + self.location
 
+	def isAvailable(self):
+		if self.available == 1:
+			return True
+		else:
+			return False
+
 
 class Review(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
