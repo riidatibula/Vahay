@@ -10,17 +10,21 @@ from .models import Vahay
 
 
 def home(request):
-	if request.user.is_authenticated:
-		return render(request, 'vahaysite/homepage.html')
+	all_vahay = Vahay.objects.all()
+	context={
+		'all_vahay': all_vahay
+	}
 
-	context={}
+	if request.user.is_authenticated:
+		return render(request, 'vahaysite/homepage.html', context=context)
+
 	if request.method == 'POST':
 		username = request.POST['username']
 		password = request.POST['password']
 		user = authenticate(username=username, password=password)
 		if user is not None:
 			login(request, user)
-			return render(request, 'vahaysite/homepage.html')
+			return render(request, 'vahaysite/homepage.html', context=context)
 		else:
 			context['error_message'] = 'wrong username or password'
 			context['username'] = username

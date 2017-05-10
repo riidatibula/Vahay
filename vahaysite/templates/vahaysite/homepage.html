@@ -2,5 +2,10 @@
 
 
 {% block body %}
-	<h1>Homepage</h1>
+	<h1>Homepage</h1><br>
+	<ul>
+		{% for vahay in all_vahay %}
+			<li><a href="{% url 'vahaysite:vahayDetails' user.username vahay.pk %}">{{ vahay }}</a></li>
+		{% endfor %}
+	</ul>
 {% endblock %}

@@ -17,4 +17,8 @@
 		<p>Not Available</p>
 	{% endif %}
 
+	{% if vahay.owner == user %}
+		<button class="btn btn-success">Edit Info</button>
+	{% endif %}
+
 {% endblock %}
